@@ -7,6 +7,8 @@
 #include "cli_word_count_command.h"
 #include "cli_pwd_command.h"
 #include "cli_unknown_command.h"
+#include "cli_ls_command.h"
+#include "cli_cd_command.h"
 #include <string>
 #include <iostream>
 #include <memory>
@@ -44,6 +46,14 @@ static Command *command_from_name(const std::string &command,
     else if (command == "pwd")
     {
         return new PwdCommand(is, os, params);
+    }
+    else if (command == "ls")
+    {
+        return new LsCommand(is, os, params);
+    }
+    else if (command == "cd")
+    {
+        return new CdCommand(is, os, params);
     }
     else
     {

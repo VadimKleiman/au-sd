@@ -5,7 +5,6 @@ CONFIG -= qt
 
 INCLUDEPATH += include/
 DEPENDPATH += include/
-
 SOURCES += src/main.cpp \
     src/cli_exception.cpp \
     src/cli_environment.cpp \
@@ -21,6 +20,8 @@ SOURCES += src/main.cpp \
     src/cli_interactive_command.cpp \
     src/cli_unknown_command.cpp \
     src/cli_pwd_command.cpp \
+    src/cli_ls_command.cpp \
+    src/cli_cd_command.cpp \
 
 HEADERS += \
     include/cli_exception.h \
@@ -38,11 +39,13 @@ HEADERS += \
     include/cli_interactive_command.h \
     include/cli_unknown_command.h \
     include/cli_pwd_command.h \
+    include/cli_ls_command.h \
+    include/cli_cd_command.h \
 
 
 QMAKE_CXXFLAGS += -Wall -Wconversion -Wpedantic
 
 QMAKE_CXXFLAGS_DEBUG += -O0 -ggdb
-
+LIBS += -lstdc++fs
 DISTFILES += \
     misc/input.txt
